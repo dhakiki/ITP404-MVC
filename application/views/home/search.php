@@ -13,5 +13,14 @@
 
 	</div>
 
+	<div class="users">
+		<?php
+			foreach($users as $user)
+			{
+				echo '<p><a href="results?search-term=' . $user->username . '">' . $user->realname . '</a> </p>';
+			}
+		?>
+	</div>
+
 </body>
 </html>

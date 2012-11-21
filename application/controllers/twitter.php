@@ -3,7 +3,15 @@
 class Twitter_Controller extends Base_Controller {
 
 	public function action_index() {
-		return View::make('home.search');
+
+		$users= Twitteruser::all();
+		//dd($users);
+
+		$results = array(
+			'users' => $users
+		);
+		return View::make('home.search', $results);
+		//return View::make('home.search');
 	}
 
 	public function action_results() {
@@ -16,5 +24,16 @@ class Twitter_Controller extends Base_Controller {
 				'tweets' => $twitter_search
 			);
 		return View::make('home.results', $data);
+	}
+
+	public function action_add() {
+		return View::make('add');
+	}
+
+	public function action_add_user() {
+		$username = Input::get('username');
+		$realname = Input::get('realname');
+		Twitteruser::save_user($username, $realname);
+
 	}
 }

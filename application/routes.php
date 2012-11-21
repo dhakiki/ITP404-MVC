@@ -37,7 +37,10 @@ Route::get('/', function()
 	return View::make('home.index');
 });
 
+
 Route::controller('twitter');
+
+Route::controller('home');
 
 /*
 |--------------------------------------------------------------------------
